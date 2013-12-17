@@ -36,8 +36,12 @@ class Application {
      * Run the application
      */
     public function run(array $config) {
-        // Request and response objects
-        $request = Request::createFromGlobals();
+        //provide a way to override default request
+        $request = $config['request'];
+        if(!$request){
+          // Request and response objects
+          $request = Request::createFromGlobals();
+        }
         $response = new Response();
         $response->setPublic();
         $response->headers->set('X-Imbo-Version', Version::VERSION);

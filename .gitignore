@@ -1,5 +1,6 @@
-build
-composer.phar
 vendor
-docs/_build
-.lintcache
+app/cache/
+app/logs/dev.log
+app/logs/prod.log
+app/config/
+.idea/

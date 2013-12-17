@@ -4,6 +4,7 @@
   "description": "RESTful image server that handles image storage/transformations and metadata",
   "keywords": [ "image storage", "image transformation", "image metadata" ],
   "homepage": "http://www.imbo-project.org/",
+  "minimum-stability": "dev",
   "license": "MIT",
   "authors": [{
       "name": "Christer Edvartsen",
@@ -20,7 +21,8 @@
     "php": ">=5.4.0",
     "ext-imagick": ">=3.0.1",
     "symfony/http-foundation": "~2.0",
-    "symfony/event-dispatcher": "~2.0"
+    "symfony/event-dispatcher": "~2.0",
+    "beherca/imbo-file": "dev-master"
   },
   "require-dev": {
     "mikey179/vfsStream": "~1.0",
@@ -29,6 +31,12 @@
     "guzzle/guzzle": "~3.0",
     "doctrine/dbal": "~2.0"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/beherca/imbo-file.git"
+    }
+  ],
   "suggest": {
     "ext-mongo": "Enables usage of MongoDB and GridFS as database and store. Recommended version: >=1.4.0",
     "ext-memcached": "Enables usage of the Memcached cache adapter for custom event listeners. Recommended version: >=2.0.0",
