@@ -90,18 +90,10 @@ class Application {
         $dateFormatter = new Helpers\DateFormatter();
 
         // Response formatters
-        $formattersConfigs = $config['formatters'];
-        $formatters = array();
-        if($formattersConfigs != null){
-          foreach($formattersConfigs as $formatter => $formattersCls){
-            $formatters[$formatter] = new $formattersCls($dateFormatter);
-          }
-        }else{
-          $formatters = array(
-              'json' => new Formatter\JSON($dateFormatter),
-              'xml'  => new Formatter\XML($dateFormatter),
-          );
-        }
+        $formatters = array(
+            'json' => new Formatter\JSON($dateFormatter),
+            'xml'  => new Formatter\XML($dateFormatter),
+        );
            
         $contentNegotiation = new Http\ContentNegotiation();
 
