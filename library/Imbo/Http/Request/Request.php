@@ -48,7 +48,7 @@ class Request extends SymfonyRequest {
      *
      * @param Route
      */
-    private $route;
+    protected $route;
 
     /**
      * Set an image model

@@ -37,11 +37,15 @@ class Application {
      */
     public function run(array $config) {
         //provide a way to override default request
-        $request = $config['request'];
-        if(!$request){
+        $requestClass = $config['request'];
+        $request = null;
+        if($requestClass != null){
+          $request = $requestClass::createFromGlobals();
+        }else{
           // Request and response objects
           $request = Request::createFromGlobals();
         }
+        
         $response = new Response();
         $response->setPublic();
         $response->headers->set('X-Imbo-Version', Version::VERSION);
@@ -86,10 +90,19 @@ class Application {
         $dateFormatter = new Helpers\DateFormatter();
 
         // Response formatters
-        $formatters = array(
-            'json' => new Formatter\JSON($dateFormatter),
-            'xml'  => new Formatter\XML($dateFormatter),
-        );
+        $formattersConfigs = $config['formatters'];
+        $formatters = array();
+        if($formattersConfigs != null){
+          foreach($formattersConfigs as $formatter => $formattersCls){
+            $formatters[$formatter] = new $formattersCls($dateFormatter);
+          }
+        }else{
+          $formatters = array(
+              'json' => new Formatter\JSON($dateFormatter),
+              'xml'  => new Formatter\XML($dateFormatter),
+          );
+        }
+           
         $contentNegotiation = new Http\ContentNegotiation();
 
         // Collect event listener data
