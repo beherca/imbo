@@ -30,21 +30,21 @@ class ResponseFormatter implements ListenerInterface {
      *
      * @var array
      */
-    private $formatters;
+    protected $formatters;
 
     /**
      * The default mime type to use when formatting a response
      *
      * @var string
      */
-    private $defaultMimeType = 'application/json';
+    protected $defaultMimeType = 'application/json';
 
     /**
      * Mapping from extensions to mime types
      *
      * @var array
      */
-    private $extensionsToMimeType = array(
+    protected $extensionsToMimeType = array(
         'json' => 'application/json',
         'xml'  => 'application/xml',
         'gif'  => 'image/gif',
@@ -58,7 +58,7 @@ class ResponseFormatter implements ListenerInterface {
      *
      * @var array
      */
-    private $supportedTypes = array(
+    protected $supportedTypes = array(
         'application/json' => 'json',
         'application/xml'  => 'xml',
         'image/gif'        => 'gif',
@@ -71,7 +71,7 @@ class ResponseFormatter implements ListenerInterface {
      *
      * @var array
      */
-    private $defaultModelTypes = array(
+    protected $defaultModelTypes = array(
         'application/json',
         'application/xml',
     );
@@ -88,7 +88,7 @@ class ResponseFormatter implements ListenerInterface {
      *
      * @var array
      */
-    private $modelTypes = array(
+    protected $modelTypes = array(
         'image' => array(
             'image/jpeg',
             'image/png',
@@ -101,7 +101,7 @@ class ResponseFormatter implements ListenerInterface {
      *
      * @var string
      */
-    private $formatter;
+    protected $formatter;
 
     /**
      * Class constructor
