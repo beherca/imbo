@@ -10,7 +10,7 @@
 
 namespace Imbo;
 
-use Imbo\Http\Request\Request,
+use Imbo\Http\Request\RequestInterface,
     Imbo\Exception\RuntimeException,
     Imbo\Router\Route;
 
@@ -65,7 +65,7 @@ class Router {
      *
      * @param Request $request The current request
      */
-    public function route(Request $request) {
+    public function route(RequestInterface $request) {
         $httpMethod = $request->getMethod();
 
         if ($httpMethod === 'BREW') {

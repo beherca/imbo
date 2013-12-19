@@ -13,6 +13,7 @@ namespace Imbo\Http\Request;
 use Imbo\Exception\InvalidArgumentException,
     Imbo\Model\Image,
     Imbo\Router\Route,
+    Imbo\Http\Request\RequestInterface,
     Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 /**
@@ -21,7 +22,7 @@ use Imbo\Exception\InvalidArgumentException,
  * @author Christer Edvartsen <cogo@starzinger.net>
  * @package Http
  */
-class Request extends SymfonyRequest {
+class Request extends SymfonyRequest implements RequestInterface{
     /**
      * The private key
      *

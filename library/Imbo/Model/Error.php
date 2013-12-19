@@ -11,7 +11,7 @@
 namespace Imbo\Model;
 
 use Imbo\Exception,
-    Imbo\Http\Request\Request,
+    Imbo\Http\Request\RequestInterface,
     DateTimeZone,
     DateTime;
 
@@ -169,7 +169,7 @@ class Error implements ModelInterface {
      * @param Request The current request
      * @return Error
      */
-    public static function createFromException(Exception $exception, Request $request) {
+    public static function createFromException(Exception $exception, RequestInterface $request) {
         $date = new DateTime('now', new DateTimeZone('UTC'));
 
         $model = new self();

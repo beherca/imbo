@@ -10,8 +10,7 @@
 
 namespace Imbo;
 
-use Imbo\Http\Request\Request,
-    Imbo\Http\Response\Response,
+use  Imbo\Http\Response\Response,
     Imbo\EventListener\ListenerInterface,
     Imbo\EventManager\Event,
     Imbo\EventManager\EventManager,
